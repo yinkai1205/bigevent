@@ -1,5 +1,6 @@
 $(function () {
   var layer = layui.layer
+  var form = layui.form
 
   initArtCateList()
 
@@ -53,6 +54,16 @@ $(function () {
       area: ['500px', '250px'],
       title: '修改文章分类',
       content: $('#dialog-edit').html()
+    })
+
+    var id = $(this).attr('data-id')
+    // 发起请求获取对应分类的数据
+    $.ajax({
+      method: 'GET',
+      url: '/my/article/cates/' + id,
+      success: function (res) {
+        form.val('form-edit', res.data)
+      }
     })
   })
 })
