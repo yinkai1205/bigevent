@@ -18,22 +18,22 @@
         <div class="layui-form-item">
           <label class="layui-form-label">原密码</label>
           <div class="layui-input-block">
-            <input type="password" name="oldPwd" required lay-verify="required" placeholder="请输入原密码" autocomplete="off"
-              class="layui-input" />
+            <input type="password" name="oldPwd" required lay-verify="required|pwd" placeholder="请输入原密码"
+              autocomplete="off" class="layui-input" />
           </div>
         </div>
         <div class="layui-form-item">
           <label class="layui-form-label">新密码</label>
           <div class="layui-input-block">
-            <input type="password" name="newPwd" required lay-verify="required" placeholder="请输入新密码" autocomplete="off"
-              class="layui-input" />
+            <input type="password" name="newPwd" required lay-verify="required|pwd|samePwd" placeholder="请输入新密码"
+              autocomplete="off" class="layui-input" />
           </div>
         </div>
         <div class="layui-form-item">
           <label class="layui-form-label">确认新密码</label>
           <div class="layui-input-block">
-            <input type="password" name="rePwd" required lay-verify="required" placeholder="请再次确认密码" autocomplete="off"
-              class="layui-input" />
+            <input type="password" name="rePwd" required lay-verify="required|pwd|rePwd" placeholder="请再次确认密码"
+              autocomplete="off" class="layui-input" />
           </div>
         </div>
         <div class="layui-form-item">
@@ -45,6 +45,15 @@
       </form>
     </div>
   </div>
+
+  <!-- 导入 layui 的 js -->
+  <script src="/assets/lib/layui/layui.all.js"></script>
+  <!-- 导入 jQuery -->
+  <script src="/assets/lib/jquery.js"></script>
+  <!-- 导入 baseAPI -->
+  <script src="/assets/js/baseAPI.js"></script>
+  <!-- 导入自己的 js -->
+  <script src="/assets/js/user/user_pwd.js"></script>
 </body>
 
 </html>
