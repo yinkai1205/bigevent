@@ -31,20 +31,35 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>贤心</td>
-            <td>2016-11-29</td>
-            <td>人生就像是一场修行</td>
-          </tr>
-          <tr>
-            <td>许闲心</td>
-            <td>2016-11-28</td>
-            <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-          </tr>
         </tbody>
       </table>
     </div>
   </div>
+
+  <!-- 表格数据的模板 -->
+  <script type="text/html" id="tpl-table">
+      {{each data}}
+      <tr>
+        <td>{{$value.name}}</td>
+        <td>{{$value.alias}}</td>
+        <td>
+          <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+          <button type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
+        </td>
+      </tr>
+      {{/each}}
+    </script>
+
+  <!-- 导入 layui 的js -->
+  <script src="/assets/lib/layui/layui.all.js"></script>
+  <!-- 导入 jQuery -->
+  <script src="/assets/lib/jquery.js"></script>
+  <!-- 导入 baseAPI -->
+  <script src="/assets/js/baseAPI.js"></script>
+  <!-- 导入模板引擎 -->
+  <script src="/assets/lib/template-web.js"></script>
+  <!-- 导入自己的 js -->
+  <script src="/assets/js/article/art_cate.js"></script>
 </body>
 
 </html>
