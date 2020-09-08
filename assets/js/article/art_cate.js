@@ -46,6 +46,7 @@ $(function () {
     })
   })
 
+  // 通过代理的形式，为 btn-edit 按钮绑定点击事件
   var indexEdit = null
   $('tbody').on('click', '.btn-edit', function () {
     // 弹出一个修改文章分类信息的层
@@ -63,6 +64,24 @@ $(function () {
       url: '/my/article/cates/' + id,
       success: function (res) {
         form.val('form-edit', res.data)
+      }
+    })
+  })
+
+  // 通过代理的形式，为修改分类的表单绑定 submit 事件
+  $('body').on('submit', '#form-edit', function (e) {
+    e.preventDefault()
+    $.ajax({
+      method: 'POST',
+      url: '/my/article/updatecate',
+      data: $(this).serialize(),
+      success: function (res) {
+        if (res.status !== 0) {
+          return layer.msg('更新分类数据失败！')
+        }
+        layer.msg('更新分类数据成功！')
+        layer.close(indexEdit)
+        initArtCateList()
       }
     })
   })
