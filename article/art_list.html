@@ -17,12 +17,7 @@
       <!-- 筛选区域 -->
       <form class="layui-form" id="form-search">
         <div class="layui-form-item layui-inline">
-          <select name="cate_id">
-            <option value="">所有分类</option>
-            <option value="010">北京</option>
-            <option value="021">上海</option>
-            <option value="0571">杭州</option>
-          </select>
+          <select name="cate_id"></select>
         </div>
         <div class="layui-form-item layui-inline">
           <select name="state">
@@ -72,6 +67,14 @@
         <button type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
       </td>
     </tr>
+    {{/each}}
+  </script>
+
+  <!-- 分类可选项的模板结构 -->
+  <script type="text/html" id="tpl-cate">
+    <option value="">所有分类</option>
+    {{each data}}
+    <option value="{{$value.Id}}">{{$value.name}}</option>
     {{/each}}
   </script>
 

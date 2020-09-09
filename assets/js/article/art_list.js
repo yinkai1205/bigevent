@@ -31,6 +31,7 @@ $(function () {
   }
 
   initTable()
+  initCate()
 
   // 获取文章列表数据的方法
   function initTable() {
@@ -44,7 +45,24 @@ $(function () {
         }
         // 使用模板引擎渲染页面的数据
         var htmlStr = template('tpl-table', res)
+        console.log(htmlStr)
         $('tbody').html(htmlStr)
+      }
+    })
+  }
+
+  // 初始化文章分类的方法
+  function initCate() {
+    $.ajax({
+      method: 'GET',
+      url: '/my/article/cates',
+      success: function (res) {
+        if (res.status !== 0) {
+          return layer.msg('获取分类数据失败！')
+        }
+        // 调用模板引擎渲染分类的可选项
+        var htmlStr = template('tpl-cate', res)
+        $('[name=cate_id]').html(htmlStr)
       }
     })
   }
