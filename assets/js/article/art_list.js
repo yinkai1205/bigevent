@@ -1,5 +1,6 @@
 $(function () {
   var layer = layui.layer
+  var form = layui.form
 
   // 定义美化时间的过滤器
   template.defaults.imports.dataFormat = function (date) {
@@ -45,7 +46,6 @@ $(function () {
         }
         // 使用模板引擎渲染页面的数据
         var htmlStr = template('tpl-table', res)
-        console.log(htmlStr)
         $('tbody').html(htmlStr)
       }
     })
@@ -63,6 +63,8 @@ $(function () {
         // 调用模板引擎渲染分类的可选项
         var htmlStr = template('tpl-cate', res)
         $('[name=cate_id]').html(htmlStr)
+        // 通过 layui 重新渲染表单区域的UI结构
+        form.render()
       }
     })
   }
