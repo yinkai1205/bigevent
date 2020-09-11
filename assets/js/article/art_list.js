@@ -47,6 +47,9 @@ $(function () {
         // 使用模板引擎渲染页面的数据
         var htmlStr = template('tpl-table', res)
         $('tbody').html(htmlStr)
+
+        // 调用渲染分页的方法
+        renderPage(res.total)
       }
     })
   }
@@ -82,5 +85,9 @@ $(function () {
     initTable()
   })
 
+  // 定义渲染分页的方法
+  function renderPage(total) {
+    console.log(total)
+  }
 
 });
