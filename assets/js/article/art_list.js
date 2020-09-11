@@ -94,6 +94,13 @@ $(function () {
       count: total, // 总数据条数
       limit: q.pagesize, // 每页显示几条数据
       curr: q.pagenum, // 设置默认被选中的分页
+      // 分页发生切换的时候，触发 jump 回调
+      jump: function (obj, first) {
+        console.log(obj.curr)
+        // 把最新的页码值，赋值到 q 这个查询参数对象中
+        q.pagenum = obj.curr
+
+      }
     })
   }
 
