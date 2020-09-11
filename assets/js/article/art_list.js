@@ -35,6 +35,7 @@ $(function () {
   initTable()
   initCate()
 
+  var flag = false
   // 获取文章列表数据的方法
   function initTable() {
     $.ajax({
@@ -94,6 +95,8 @@ $(function () {
       count: total, // 总数据条数
       limit: q.pagesize, // 每页显示几条数据
       curr: q.pagenum, // 设置默认被选中的分页
+      layout: ['count', 'limit', 'prev', 'page', 'next', 'skip'],
+      limits: [2, 3, 5, 10],
       // 分页发生切换的时候，触发 jump 回调
       // 触发 jump 回调的方式有两种：
       // 1. 点击页码的时候，会触发 jump 回调
