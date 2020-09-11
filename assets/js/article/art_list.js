@@ -95,12 +95,22 @@ $(function () {
       limit: q.pagesize, // 每页显示几条数据
       curr: q.pagenum, // 设置默认被选中的分页
       // 分页发生切换的时候，触发 jump 回调
+      // 触发 jump 回调的方式有两种：
+      // 1. 点击页码的时候，会触发 jump 回调
+      // 2. 只要调用了 laypage.render() 方法，就会触发 jump 回调
       jump: function (obj, first) {
+        // 可以通过 first 的值，来判断是通过哪种方式，触发的 jump 回调
+        // 如果 first 的值为 true，证明是方式2触发的
+        // 否则就是方式1触发的
+        console.log(first)
         console.log(obj.curr)
         // 把最新的页码值，赋值到 q 这个查询参数对象中
         q.pagenum = obj.curr
         // 根据最新的 q 获取对应的数据列表，并渲染表格
-        initTable()
+        // initTable()
+        if (!first) {
+          initTable()
+        }
       }
     })
   }
