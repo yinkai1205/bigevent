@@ -99,7 +99,8 @@ $(function () {
         console.log(obj.curr)
         // 把最新的页码值，赋值到 q 这个查询参数对象中
         q.pagenum = obj.curr
-
+        // 根据最新的 q 获取对应的数据列表，并渲染表格
+        initTable()
       }
     })
   }
