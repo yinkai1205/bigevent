@@ -1,6 +1,7 @@
 $(function () {
   var layer = layui.layer
   var form = layui.form
+  var laypage = layui.laypage
 
   // 定义美化时间的过滤器
   template.defaults.imports.dataFormat = function (date) {
@@ -87,7 +88,13 @@ $(function () {
 
   // 定义渲染分页的方法
   function renderPage(total) {
-    console.log(total)
+    // 调用 laypage.render() 方法来渲染分页的结构
+    laypage.render({
+      elem: 'pageBox', // 分页容器的 Id
+      count: total, // 总数据条数
+      limit: q.pagesize, // 每页显示几条数据
+      curr: q.pagenum, // 设置默认被选中的分页
+    })
   }
 
 });
