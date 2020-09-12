@@ -3,6 +3,9 @@ $(function () {
   var form = layui.form
 
   initCate()
+  // 初始化富文本编辑器
+  initEditor()
+
   // 定义加载文章分类的方法
   function initCate() {
     $.ajax({
