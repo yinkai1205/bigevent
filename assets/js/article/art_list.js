@@ -120,8 +120,11 @@ $(function () {
     })
   }
 
-  //通过代理的形式，为删除按钮绑定点击事件处理函数
+  // 通过代理的形式，为删除按钮绑定点击事件处理函数
   $('tbody').on('click', '.btn-delete', function () {
+    // 获取删除按钮的个数
+    var len = $('.btn-delete').length
+    console.log(len)
     // 获取到文章的 id
     var id = $(this).attr('data-id')
     // 询问用户是否要删除数据
@@ -134,6 +137,13 @@ $(function () {
             return layer.msg('删除文章失败！')
           }
           layer.msg('删除文章成功！')
+          // 当数据删除完成后，需要判断当前这一页中，是否还有剩余的数据
+          // 如果没有剩余的数据了,则让页码值 -1 之后,
+          // 再重新调用 initTable 方法
+          // 4
+          if (len === 1) {
+            // 如果 len 的值等于1，证明删除完毕之后，页面上就没有任何数据了
+          }
           initTable()
         }
       })
