@@ -65,4 +65,18 @@ $(function () {
   $('#btnSave2').on('click', function () {
     art_state = '草稿'
   })
+
+  // 为表单绑定 submit 提交事件
+  $('#form-pub').on('submit', function (e) {
+    // 1. 阻止表单的默认提交行为
+    e.preventDefault()
+    // 2. 基于 form 表单，快速创建一个 FormData 对象
+    var fd = new FormData($(this)[0])
+    // 3. 将文章的发布状态，存到 fd 中
+    fd.append('state', art_state)
+
+    fd.forEach(function (v, k) {
+      console.log(k, v)
+    })
+  })
 })
