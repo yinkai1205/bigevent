@@ -120,4 +120,26 @@ $(function () {
     })
   }
 
+  //通过代理的形式，为删除按钮绑定点击事件处理函数
+  $('tbody').on('click', '.btn-delete', function () {
+    // 获取到文章的 id
+    var id = $(this).attr('data-id')
+    // 询问用户是否要删除数据
+    layer.confirm('确认删除?', { icon: 3, title: '提示' }, function (index) {
+      $.ajax({
+        method: 'GET',
+        url: '/my/article/delete/' + id,
+        success: function (res) {
+          if (res.status !== 0) {
+            return layer.msg('删除文章失败！')
+          }
+          layer.msg('删除文章成功！')
+          initTable()
+        }
+      })
+
+      layer.close(index)
+    })
+  })
+
 });
