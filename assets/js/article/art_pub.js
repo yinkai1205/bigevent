@@ -57,4 +57,12 @@ $(function () {
       .attr('src', newImgURL) // 重新设置图片路径
       .cropper(options) // 重新初始化裁剪区域
   })
+
+  // 定义文章的发布状态
+  var art_state = '已发布'
+
+  // 为存为草稿按钮，绑定点击事件处理函数
+  $('#btnSave2').on('click', function () {
+    art_state = '草稿'
+  })
 })
