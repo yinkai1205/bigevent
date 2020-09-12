@@ -36,4 +36,8 @@ $(function () {
   // 3. 初始化裁剪区域
   $image.cropper(options)
 
+  // 为选择封面的按钮，绑定点击事件处理函数
+  $('#btnChooseImage').on('click', function () {
+    $('#coverFile').click()
+  })
 })
