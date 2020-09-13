@@ -157,4 +157,11 @@ $(function () {
     })
   })
 
+  // 通过代理的形式，为删除按钮绑定点击事件处理函数
+  $('tbody').on('click', '.btn-edit', function () {
+    // 获取到文章的 id
+    var id = $(this).attr('data-id')
+    location.href = '/article/art_edit.html?id=' + id
+  })
+
 });
